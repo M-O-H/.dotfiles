@@ -96,4 +96,4 @@ eval "$(oh-my-posh init zsh --config ~/.config/poshthemes/zen.toml)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
