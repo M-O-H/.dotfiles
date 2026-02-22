@@ -1,0 +1,12 @@
+configuration {
+    modi: "apps:~/.config/rofi/modes/apps.sh,shortcuts:~/.config/rofi/modes/shortcuts.sh,wallpaper:~/.config/rofi/modes/wallpaper.sh";
+    show-icons: true;
+    display-apps: "Apps";
+    display-shortcuts: "Shortcuts";
+    display-wallpaper: "Wallpaper";
+    font: "JetBrainsMono Nerd Font 12";
+    location: 0;
+    drun-display-format: "{icon} {name}";
+}
+
+@theme "~/.config/rofi/style.rasi"

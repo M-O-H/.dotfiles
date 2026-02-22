@@ -17,7 +17,7 @@
 #workspaces,
 #window,
 #tray{
-  background-color: rgba(21,21,21, 0.7);
+  background-color: rgba(21,21,21, 0.9);
   /*background-color: rgba(15,27,53,0.9);*/
   border: none;
   outline: none;
@@ -30,7 +30,7 @@
 
 #clock,
 #custom-power{
-  background-color: rgba(21,21,21, 0.7);
+  background-color: rgba(21,21,21, 0.9);
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   margin-right: 6px;
   /*margin-bottom: 4px;*/
@@ -41,7 +41,7 @@
 
 #network,
 #custom-lock{
-  background-color: rgba(21,21,21, 0.7);
+  background-color: rgba(21,21,21, 0.9);
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   margin-left: 6px;
   /*margin-bottom: 4px;*/
@@ -58,7 +58,7 @@
 #custom-temperature,
 #memory,
 #cpu{
-  background-color: rgba(21,21,21, 0.7);
+  background-color: rgba(21,21,21, 0.9);
   margin-top: 6px; /* 与屏幕顶部留出距离 */
   /*margin-bottom: 4px;*/
   padding: 4px 2px;
