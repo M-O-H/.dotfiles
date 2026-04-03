@@ -1,5 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
+
 ZSH_THEME="agnoster"
 
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -55,11 +56,47 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# ============================================
+# KEY BINDINGS
+# ============================================
+
+# bindkey '^D' kill-word
+#
+
+fzf-cd-widget() {
+    local dir
+    dir=$(fd --type d --hidden --exclude .git . ~ 2>/dev/null | fzf --height 40% --reverse --border) || return
+    cd "$dir"
+    zle reset-prompt
+}
+
+zle -N fzf-cd-widget
+bindkey '^g' fzf-cd-widget
+
+
+search-config-content() {
+    local file
+    file=$(fd . ~/.config  --hidden --exclude .git --exclude ./.config/zen/   | \
+        fzf --preview 'bat --style=numbers --color=always {}')
+
+    [ -n "$file" ] && nvim "$file"
+}
+zle -N search-config-content
+bindkey '^f' search-config-content
+# ============================================
+# PLUGINS
+# ============================================
+
 plugins=(
-	git
-	colored-man-pages
-	web-search
+    git
+    # colored-man-pages
+    # zsh-vi-mode
 )
+
+# Alias & binds
+alias vim='nvim'
+alias vi='vim'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,5 +132,27 @@ eval "$(oh-my-posh init zsh --config ~/.config/poshthemes/zen.toml)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# ============================================
+# PLUGINS
+# ============================================
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ---- lazy nvm (no startup lag) ----
+# echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+#
+
+## Nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+
+# pnpm
+export PNPM_HOME="/home/mohamed/.local/share/pnpm"
+case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
